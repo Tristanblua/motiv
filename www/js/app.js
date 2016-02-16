@@ -29,14 +29,12 @@ angular.module('starter', ['ionic', "firebase", "starter.controllers"])
 
   .state('app', {
     url: '/',
-    abstract: true,
     templateUrl: 'templates/login.html',
   })
-  .state('app.home', {
+  .state('home', {
     url: '/home',
     templateUrl: 'templates/home.html',
   })
-
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/login');
+  $urlRouterProvider.otherwise('/login');
 });
