@@ -1,0 +1,32 @@
+<ion-view view-title="register" ng-controller="UserCtrl">
+  <ion-content>
+  <div> 
+	<div class="list">
+	  <label class="item item-input">
+	    <span class="input-label">Username</span>
+	    <input type="text" name="email">
+	  </label>
+	  <label class="item item-input">
+	    <span class="input-label">Password</span>
+	    <input type="password" name="password">
+	  </label>
+	  <label class="item item-input">
+	    <span class="input-label">Name</span>
+	    <input type="text" name="name">
+	  </label>
+	  <label class="item item-input">
+	    <span class="input-label">Surname</span>
+	    <input type="text" name="surname">
+	  </label>
+	</div>
+	<button class="button button-block button-positive" ng-click="addUser()">
+  		Submit
+	</button>
+	</div>
+	<!-- <ion-list>
+	    <ion-item ng-repeat="user in users">
+	      {{user.email}}
+	    </ion-item>
+	</ion-list> -->
+  </ion-content>
+</ion-view>

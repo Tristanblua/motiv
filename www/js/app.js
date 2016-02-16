@@ -25,11 +25,16 @@ starter.config(function($stateProvider, $urlRouterProvider) {
    url: '/',
    templateUrl: 'templates/home.html',
  })
+ .state('register', {
+   url: '/register',
+   templateUrl: 'templates/register.html',
+   controller: 'UserCtrl'
+ })
  .state('login', {
    url: '/login',
    templateUrl: 'templates/login.html',
-   controller: 'UserCtrl'
+   controller: 'AuthCtrl'
  });
  // if none of the above states are matched, use this as the fallback
- $urlRouterProvider.otherwise('/home');
+ $urlRouterProvider.otherwise('/');
 });
