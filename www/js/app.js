@@ -1,4 +1,4 @@
-var starter = angular.module('starter', ['ionic', "firebase"]);
+var starter = angular.module('starter', ['ionic', "firebase", "starter.controllers"]);
 
 starter.run(function($ionicPlatform) {
  $ionicPlatform.ready(function() {
@@ -23,12 +23,13 @@ starter.config(function($stateProvider, $urlRouterProvider) {
  $stateProvider
  .state('app', {
    url: '/',
-   templateUrl: 'templates/login.html',
+   templateUrl: 'templates/home.html',
  })
- .state('home', {
-   url: '/home',
-   templateUrl: 'templates/home.html'
+ .state('login', {
+   url: '/login',
+   templateUrl: 'templates/login.html',
+   controller: 'UserCtrl'
  });
  // if none of the above states are matched, use this as the fallback
- $urlRouterProvider.otherwise('/login');
+ $urlRouterProvider.otherwise('/home');
 });
