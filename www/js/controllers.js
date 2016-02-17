@@ -20,7 +20,7 @@ angular.module('starter.controllers', [])
 // })
 
 
-.controller("UserCtrl", function($scope) {
+.controller("UserCtrl", function($scope, $location) {
 	var ref = new Firebase("https://motiv.firebaseio.com");
 	$scope.addUser = function () {
 		var email = document.getElementsByName("email")[0].value;
@@ -45,6 +45,7 @@ angular.module('starter.controllers', [])
 		        surname: surname
 		      });
       		}
+      		$location.path('/login');
 		  }
 		});
     };
@@ -75,9 +76,23 @@ angular.module('starter.controllers', [])
 	if (authData) {
 	  console.log("Authenticated user with uid:", authData.uid);
 	}
+
+	var refUser = new Firebase("https://motiv.firebaseio.com/users");
+	refUser.on("value", function(snapshot) {
+  	  	console.log(snapshot.val());
+  	  	//console.log(snapshot.val()[authData.uid]);
+  	  $scope.user = snapshot.val()[authData.uid].surname;
+  	  	//console.log(snapshot.val()[authData.uid].surname);
+  	  	//console.log('[authData.uid]');
+  	  	console.log("[authData.uid]");
+  	  	console.log([authData.uid]);
+  	  	var myusers = snapshot.val();
+  	  delete myusers[authData.uid];
+  	  	console.log(myusers);
+  	  	$scope.users = myusers;
+	})
+
 })
-
-
 
 
 

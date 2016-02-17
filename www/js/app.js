@@ -36,5 +36,5 @@ starter.config(function($stateProvider, $urlRouterProvider) {
    controller: 'AuthCtrl'
  });
  // if none of the above states are matched, use this as the fallback
- $urlRouterProvider.otherwise('/');
+ $urlRouterProvider.otherwise('/register');
 });
