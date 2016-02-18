@@ -34,6 +34,21 @@ starter.config(function($stateProvider, $urlRouterProvider) {
    url: '/login',
    templateUrl: 'templates/login.html',
    controller: 'AuthCtrl'
+ })
+ .state('pickchallenge', {
+   url: '/pickchallenge',
+   templateUrl: 'templates/pickchallenge.html',
+   controller: 'PickChallengeCtrl'
+ })
+ .state('numberchallenge', {
+   url: '/numberchallenge',
+   templateUrl: 'templates/numberchallenge.html',
+   controller: 'PickNumberCtrl'
+ })
+ .state('createchallenge', {
+   url: '/createchallenge',
+   templateUrl: 'templates/createchallenge.html',
+   controller: 'CreateChallengeCtrl'
  });
  // if none of the above states are matched, use this as the fallback
  $urlRouterProvider.otherwise('/register');

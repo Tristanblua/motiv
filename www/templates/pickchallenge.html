@@ -1,0 +1,7 @@
+<ion-view view-title="pickchallenge" ng-controller="PickChallengeCtrl">
+  <ion-content>
+    <ion-list ng-repeat="challenge in challenges">
+      <a ui-sref="numberchallenge"><ion-radio ng-model="choice" ng-value="{{challenge.id}}" ng-click="pickChallenge({{challenge.id}})">{{challenge.name}}</ion-radio></a>
+	</ion-list>
+  </ion-content>
+</ion-view>

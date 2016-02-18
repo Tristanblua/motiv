@@ -1,0 +1,10 @@
+<ion-view view-title="createchallenge" ng-controller="CreateChallengeCtrl">
+  <ion-content>
+  <ion-list ng-repeat="user in users">
+  <ion-radio ng-model="choice" ng-value="'{{user.uid}}'" ng-click="pickUser('{{user.uid}}')">{{user.surname}}</ion-radio>
+</ion-list>
+<button class="button button-block button-positive" ng-click = "addChallenge()">
+      Submit
+  </button>	
+  </ion-content>
+</ion-view>

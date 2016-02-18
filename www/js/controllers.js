@@ -86,7 +86,7 @@ angular.module('starter.controllers', [])
   	  	//console.log('[authData.uid]');
   	  	console.log("[authData.uid]");
   	  	console.log([authData.uid]);
-  	  	var myusers = snapshot.val();
+  	  var myusers = snapshot.val();
   	  delete myusers[authData.uid];
   	  	console.log(myusers);
   	  	$scope.users = myusers;
@@ -94,8 +94,68 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller("PickChallengeCtrl", function($scope) {
+
+	var refChallenge = new Firebase("https://motiv.firebaseio.com/challenge");
+	refChallenge.on("value", function(snapshot) {
+  	  $scope.challenges = snapshot.val();
+	})
+
+	$scope.pickChallenge = function(id) {
+		window.localStorage['idChallenge'] = id;
+	}
+})
+
+.controller("PickNumberCtrl", function($scope) {
+
+	$scope.pickNumbers = function(id) {
+		var rep = document.getElementById("rep_number").value;
+		var series =  document.getElementById("series_number").value;
+		window.localStorage['rep'] = rep;
+		window.localStorage['series'] = series;
+	}
+})
 
 
+.controller("CreateChallengeCtrl", function($scope, Challengesent) {
+  var ref = new Firebase("https://motiv.firebaseio.com");
+  var authData = ref.getAuth();
+
+  var refUsers = new Firebase("https://motiv.firebaseio.com/users");
+
+  refUsers.on("value", function(snapshot) {
+    var myusers = snapshot.val();
+  	delete myusers[authData.uid];
+  	$scope.users = myusers;
+  	console.log($scope.users);
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
+
+  $scope.pickUser = function(id) {
+  	window.localStorage['idUser'] = id;
+  }
+  
+  $scope.challengesent = Challengesent;
+  $scope.addChallenge = function() {
+  	var pickedUser = localStorage.getItem('idUser');
+  	var challengeId = localStorage.getItem('idChallenge');
+  	var rep = localStorage.getItem('rep');
+  	var series = localStorage.getItem('series');
+      $scope.challengesent.$add({
+        "idSender": authData.uid,
+        "idReceiver":pickedUser,
+        "idChallenge":challengeId,
+        "rep":rep,
+        "series":series
+      });
+  };
+})
+
+.factory("Challengesent", function($firebaseArray) {
+  var challengesentRef = new Firebase("https://motiv.firebaseio.com/challengesent");
+  return $firebaseArray(challengesentRef);
+})
 
 
 
