@@ -177,8 +177,7 @@ angular.module('starter.controllers', [])
   		
   		angular.forEach(challengesRow, function(challenge, key) {
 			if (challenge.idReceiver == $scope.useruid){
-				// On recupère chacuns des utilisateur qui ont 
-				// pusher le challenge
+				// get users that pushed the challenges
 				var sender = _.find($scope.users, {uid : challenge.idSender});
 
 				var tmp = parseInt(challenge.idChallenge);
