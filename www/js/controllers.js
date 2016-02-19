@@ -1,25 +1,5 @@
 angular.module('starter.controllers', [])
 
-// .controller("UserCtrl", function($scope, Users) {
-//   $scope.users = Users;
-//   $scope.addUser = function() {
-//     var email = document.getElementsByName("email")[0].value;
-//     var password = document.getElementsByName("password")[0].value;
-//     console.log(email);
-//     console.log(password);
-//       $scope.users.$add({
-//         "email": email,
-//         "password":password
-//       });
-//   };
-// })
-
-// .factory("Users", function($firebaseArray) {
-//   var usersRef = new Firebase("https://motiv.firebaseio.com/users");
-//   return $firebaseArray(usersRef);
-// })
-
-
 .controller("UserCtrl", function($scope, $location) {
 	var ref = new Firebase("https://motiv.firebaseio.com");
 	$scope.addUser = function () {
@@ -70,27 +50,43 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller("CheckAuth", function($scope) {
+// .controller("CheckAuthCtrl", function($scope) {
+// 	var ref = new Firebase("https://motiv.firebaseio.com");
+// 	var authData = ref.getAuth();
+// 	if (authData) {
+// 	  console.log("Authenticated user with uid:", authData.uid);
+// 	}
+
+// 	var refUser = new Firebase("https://motiv.firebaseio.com/users");
+// 	refUser.on("value", function(snapshot) {
+//   	  	console.log(snapshot.val());
+//   	  	//console.log(snapshot.val()[authData.uid]);
+//   	  $scope.user = snapshot.val()[authData.uid];
+//   	  	//console.log(snapshot.val()[authData.uid].surname);
+//   	  	//console.log('[authData.uid]');
+//   	  	console.log("[authData.uid]");
+//   	  	console.log([authData.uid]);
+//   	  var myusers = snapshot.val();
+//   	  delete myusers[authData.uid];
+//   	  	console.log(myusers);
+//   	  	$scope.users = myusers;
+// 	})
+
+// })
+
+.controller("ProfilCtrl", function($scope) {
 	var ref = new Firebase("https://motiv.firebaseio.com");
 	var authData = ref.getAuth();
-	if (authData) {
-	  console.log("Authenticated user with uid:", authData.uid);
-	}
-
+	console.log(authData);
 	var refUser = new Firebase("https://motiv.firebaseio.com/users");
 	refUser.on("value", function(snapshot) {
-  	  	console.log(snapshot.val());
-  	  	//console.log(snapshot.val()[authData.uid]);
-  	  $scope.user = snapshot.val()[authData.uid].surname;
-  	  	//console.log(snapshot.val()[authData.uid].surname);
-  	  	//console.log('[authData.uid]');
-  	  	console.log("[authData.uid]");
-  	  	console.log([authData.uid]);
-  	  var myusers = snapshot.val();
-  	  delete myusers[authData.uid];
-  	  	console.log(myusers);
-  	  	$scope.users = myusers;
+  	  $scope.user = snapshot.val()[authData.uid];
+
 	})
+
+	$scope.logout = function() {
+		ref.unauth();
+	}
 
 })
 
@@ -152,10 +148,65 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller("YourChallengeCtrl", ["$scope", "$firebaseObject",
+  function($scope, $firebaseObject) {
+    var refChallengeSent = new Firebase("https://motiv.firebaseio.com/challengesent");
+    var refChallenge = new Firebase("https://motiv.firebaseio.com/challenge");
+	var refUser = new Firebase("https://motiv.firebaseio.com/users");
+
+	 var ref = new Firebase("https://motiv.firebaseio.com");
+	 var authData = ref.getAuth();
+	 $scope.useruid = authData.uid;
+
+	refUser.on("value", function(snapshot) {
+		$scope.users = snapshot.val();
+	})
+
+	refChallenge.on("value", function(snapshot) {
+		$scope.challenge = snapshot.val();
+
+	})
+
+     
+     var obj = $firebaseObject(refChallengeSent);
+     // to take an action after the data loads, use the $loaded() promise
+     obj.$loaded().then(function() {
+	 	refChallengeSent.on("value", function(snapshot) {
+	  	var challenges = [];
+	  	var challengesRow = snapshot.val();
+  		
+  		angular.forEach(challengesRow, function(challenge, key) {
+			if (challenge.idReceiver == $scope.useruid){
+				// On recupère chacuns des utilisateur qui ont 
+				// pusher le challenge
+				var sender = _.find($scope.users, {uid : challenge.idSender});
+
+				var tmp = parseInt(challenge.idChallenge);
+
+				var getChallengeName = _.find($scope.challenge, {id : tmp});
+
+				challenge.sender = sender;
+				challenge.getChallengeName = getChallengeName;
+          		challenges.unshift(challenge);
+       		}
+	  	});
+
+  	  	$scope.challengesents = challenges;
+  	  	console.log("Challenge");
+  	  	console.log($scope.challengesents);
+
+
+	 })
+
+
+     });
+     $scope.data = obj;
+
+     obj.$bindTo($scope, "data");
+  }
+])
+
 .factory("Challengesent", function($firebaseArray) {
   var challengesentRef = new Firebase("https://motiv.firebaseio.com/challengesent");
   return $firebaseArray(challengesentRef);
 })
-
-
-

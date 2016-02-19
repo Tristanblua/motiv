@@ -25,6 +25,15 @@ starter.config(function($stateProvider, $urlRouterProvider) {
    url: '/',
    templateUrl: 'templates/home.html',
  })
+ .state('home', {
+   url: '/home',
+   templateUrl: 'templates/home.html',
+ })
+ .state('profil', {
+   url: '/profil',
+   templateUrl: 'templates/profil.html',
+   controller: 'ProfilCtrl'
+ })
  .state('register', {
    url: '/register',
    templateUrl: 'templates/register.html',
@@ -34,6 +43,11 @@ starter.config(function($stateProvider, $urlRouterProvider) {
    url: '/login',
    templateUrl: 'templates/login.html',
    controller: 'AuthCtrl'
+ })
+ .state('challenge', {
+   url: '/challenge',
+   templateUrl: 'templates/challenge.html',
+   controller: 'YourChallengeCtrl'
  })
  .state('pickchallenge', {
    url: '/pickchallenge',
@@ -51,5 +65,5 @@ starter.config(function($stateProvider, $urlRouterProvider) {
    controller: 'CreateChallengeCtrl'
  });
  // if none of the above states are matched, use this as the fallback
- $urlRouterProvider.otherwise('/register');
+ $urlRouterProvider.otherwise('/home');
 });

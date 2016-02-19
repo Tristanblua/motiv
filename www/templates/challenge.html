@@ -1,0 +1,20 @@
+<ion-view view-title="challenge" controller="YourChallengeCtrl">
+  <ion-content>
+  <div class="content padding">
+      <ion-list ng-repeat="challengesent in challengesents">
+      <li class="item">
+        <div>
+          {{challengesent.getChallengeName.name}}
+        </div>
+        <div>
+          <p>{{challengesent.series}} séries de {{challengesent.rep}} répétitions</p>
+        </div>
+        <div>
+          {{challengesent.sender.surname}}
+        </div>
+      </li>
+  </ion-list>
+
+	</div>
+  </ion-content>
+</ion-view>

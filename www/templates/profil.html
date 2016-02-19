@@ -1,0 +1,13 @@
+<ion-view view-title="profil" controller="ProfilCtrl">
+  <ion-content>
+  <div class="content padding">
+  	<p>
+  	  {{user.surname}}
+  	  {{user.name}}
+  	</p>
+  	<a ui-sref="login"><button ng-click="logout()" class="button button-positive">
+  	  Log out
+	</button></a>
+	</div>
+  </ion-content>
+</ion-view>

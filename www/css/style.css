@@ -1,1 +1,16 @@
 /* Empty. Add your own CSS if you like */
+
+.createchallenge {
+	padding-top: 150px;
+	text-align: center;
+}
+
+.createchallenge span {
+	display: block;
+	margin-top: 10px;
+}
+
+#createchallenge {
+	font-size: 65px;
+}
+
