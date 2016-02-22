@@ -1,34 +1,23 @@
-<ion-view view-title="register" ng-controller="UserCtrl">
-  <ion-content>
-  <div class="content"> 
+<ion-view hide-nav-bar="true" ng-controller="UserCtrl" class="register">
+<ion-nav-title><img src="http://motiv.fr/img/motiv-app-logo.png"></ion-nav-title>
+  <ion-content id="registration">
+  <div class="head-register">
+  	<img src="http://motiv.fr/img/motiv-register-logo.png">
+  </div>
 	<div class="list">
-	  <label class="item item-input">
-	    <span class="input-label">Email</span>
-	    <input type="text" name="email">
-	  </label>
-	  <label class="item item-input">
-	    <span class="input-label">Password</span>
-	    <input type="password" name="password">
-	  </label>
-	  <label class="item item-input">
-	    <span class="input-label">Name</span>
-	    <input type="text" name="name">
-	  </label>
-	  <label class="item item-input">
-	    <span class="input-label">Surname</span>
-	    <input type="text" name="surname">
-	  </label>
+	    <input type="text" placeholder="Nom" name="surname">
+	    <input type="text" name="email" placeholder="Email">
+	    <input type="password" placeholder="Mot de passe" name="password">
 	</div>
-	<button class="button button-block button-positive" ng-click="addUser()">
-  		Submit
-	</button>
-	
+	<div class="inscription-button">
+		<button class="inscription" ng-click="addUser()">
+  			Inscription
+		</button>
 	</div>
-	<div class="content">	<a ui-sref="login">
-	  <div class="bar bar-header bar-energized">
-  		<p class="title">log in</p>
-	  </div>
-	</a></div>
+	<div id="has-account">
+		<span>Vous avez déjà un compte ?</span>
+		<a ui-sref="login" id="connexion">Connexion</a>
+	</div>
 	
   </ion-content>
 </ion-view>

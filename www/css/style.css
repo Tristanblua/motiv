@@ -1,4 +1,80 @@
-/* Empty. Add your own CSS if you like */
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?vu4z27');
+    src:    url('../fonts/icomoon.eot?vu4z27#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?vu4z27') format('truetype'),
+        url('../fonts/icomoon.woff?vu4z27') format('woff'),
+        url('../fonts/icomoon.svg?vu4z27#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-challenge:before {
+    content: "\e900";
+}
+.icon-notif:before {
+    content: "\e901";
+}
+.icon-plus:before {
+    content: "\e903";
+}
+.icon-profil:before {
+    content: "\e902";
+}
+
+
+
+body {
+	font-family: "Roboto", Arial, sans-serif;
+	font-weight: 400;
+	color: #000;
+}
+
+a {
+	text-decoration: none;
+	color: #06bebd;
+}
+
+/* MARGIN MOBILE */
+/*h1 {
+	margin-bottom: 20px;
+}*/
+
+/* MARGIN BROWSER */
+h1 {
+	margin-bottom: 0;
+}
+
+.has-header {
+	top: 0!important;
+}
+
+.nav-bar-title img {
+	width: 65px;
+	padding-top: 10px;
+}
+.bar-header {
+background: linear-gradient(135deg,  #e5dd82 0%,#49bd99 43%,#2da3b6 73%);
+	color: #fff;
+	font-family: "Source Sans Pro", Arial;
+	font-weight: 400;
+}
+
 
 .createchallenge {
 	padding-top: 150px;
@@ -13,4 +89,247 @@
 #createchallenge {
 	font-size: 65px;
 }
+
+
+/* REGISTRATION */
+#profil {
+	margin:0 auto;
+	width: 70%;
+}
+
+.register {
+	background: url(http://motiv.fr/img/app-register.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.head-register {
+	width: 65%;
+	margin: 0 auto;
+}
+
+.head-register img {
+	max-width: 100%;
+	margin-top: 50px;
+}
+
+.register .has-footer {
+	bottom: 0;
+}
+
+#registration .list {
+	margin: 50px auto 0 auto;
+	width: 65%;
+}
+
+#login .list {
+	margin: 50px auto 0 auto;
+	width: 65%;
+}
+
+#registration input {
+	font-size: 1.2em;
+	color: #fff;
+	font-weight: 300;
+	background-color: rgba(255, 255, 255, 0.3);
+	display: block;
+	width: 100%;
+	margin-top: 15px;
+	height: 50px;
+	padding-left: 15px;
+}
+
+#login input {
+	font-size: 1.2em;
+	color: #fff;
+	font-weight: 300;
+	background-color: rgba(255, 255, 255, 0.3);
+	display: block;
+	width: 100%;
+	margin-top: 15px;
+	height: 50px;
+	padding-left: 15px;
+}
+
+#registration input::-webkit-input-placeholder {
+	font-size: 1em;
+	font-weight: 300;
+	color: #fff;
+}
+
+#login input::-webkit-input-placeholder {
+	font-size: 1em;
+	font-weight: 300;
+	color: #fff;
+}
+
+.inscription-button {
+	margin: 0 auto;
+	width: 65%;
+}
+
+.inscription {
+
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-top: 25px;
+	height: 65px;
+	width: 100%;
+	color: #2dabac;
+	background-color: #fff;
+	text-align: center;
+	outline: 0;
+	border:0;
+	border-radius: 32.5px;
+}
+
+#has-account {
+	margin: 55px auto 0 auto;
+	width: 65%;
+	color: #fff;
+	padding-bottom: 30px;
+}
+
+#has-account a {
+	font-weight: 700;
+	color: #fff;
+}
+
+/* PROFIL */
+
+#user-content {
+	text-align: center;
+}
+
+#user-name {
+	font-size: 1.25em;
+	line-height: 100%;
+	color: #3c4350;
+	font-weight:300; 
+}
+
+#user-title {
+	text-transform: uppercase;
+	font-size: 1.25em;
+	color: #3c4350;
+	font-weight: 500;
+}
+
+#progress {
+	text-align: center;
+}
+
+#progress span {
+	font-weight: 0.625em;
+	font-weight: 400;
+}
+
+#profil .wrapper {
+	margin-top: 72px;
+}
+
+#profil .wrapper a {
+	font-weight: 500;
+	color: #3c4350;
+	font-size: 1.125em;
+	border-bottom: 1px solid #666666;
+	display: block;
+	width: 100%;
+	padding: 21px 0;
+}
+
+#profil .wrapper a:first-child {
+	border-top:1px solid #666666;
+}
+
+/* CHALLENGE */
+
+#grey-background {
+	background-color: #f6f4f4;
+}
+
+#challenge {
+	width: 90%;
+	margin:0 auto;
+} 
+
+#challenge:first-child {
+	margin-top: 17px;
+}
+
+.challenges {
+	margin-bottom: 17px;
+	padding:20px;
+	position: relative;
+}
+
+.challenge-name {
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #30363f;
+}
+
+.challenges-info {
+	float: left;
+}
+
+.iterations p {
+	display: inline;
+	color: #a9a9a9;
+	font-weight: 300;
+	font-size: 0.813em;
+}
+
+.rep {
+	margin-left: 12px;
+}
+
+.iterations span {
+	font-weight: 700;
+}
+
+.challenge-user-name img {
+	width: 38px;
+	height: 38px;
+	display: block;
+	border-radius: 19px;
+	margin: 0 auto;
+}
+
+.challenge-user-name {
+	float: right;
+	font-weight: 300;
+	font-size: 0.688em;
+	padding-top: 3px;
+}
+
+/* FOOTER */
+
+#footer {
+	padding: 0;
+	background-color: #5f5f5f;
+	background-image: none;
+}
+
+#footer a {
+	background-color: #5f5f5f;
+}
+
+#footer i {
+	color: #fff;
+	font-size: 1.3em;
+	line-height: 2.4em;
+}
+
+#footer > #challenge-button {
+	display: block;
+	background-color: #494949;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+
+
+
+
 

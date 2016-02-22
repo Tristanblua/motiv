@@ -1,4 +1,5 @@
-<ion-view view-title="createchallenge" ng-controller="CreateChallengeCtrl">
+<ion-view ng-controller="CreateChallengeCtrl">
+<ion-nav-title><img src="http://motiv.fr/img/motiv-app-logo.png"></ion-nav-title>
   <ion-content>
   <ion-list ng-repeat="user in users">
   <ion-radio ng-model="choice" ng-value="'{{user.uid}}'" ng-click="pickUser('{{user.uid}}')">{{user.surname}}</ion-radio>

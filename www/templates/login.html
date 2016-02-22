@@ -1,19 +1,21 @@
-<ion-view view-title="login" ng-controller="AuthCtrl">
-  <ion-content>
+<ion-view ng-controller="AuthCtrl" hide-nav-bar="true" class="register">
+<ion-nav-title><img src="http://motiv.fr/img/motiv-app-logo.png"></ion-nav-title>
+  <ion-content id="login">
+  <div class="head-register">
+  	<img src="http://motiv.fr/img/motiv-register-logo.png">
+  </div>
   <div> 
 	<div class="list">
-	  <label class="item item-input">
-	    <span class="input-label">Email</span>
-	    <input type="text" name="email">
-	  </label>
-	  <label class="item item-input">
-	    <span class="input-label">Password</span>
-	    <input type="password" name="password">
-	  </label>
+	    <input type="text" placeholder="Email" name="email">
+	    <input type="password" placeholder="Mot de passe" name="password">
 	</div>
-	<a ui-sref="home"><button class="button button-block button-positive" ng-click="authUser()">
-  		Loggin
-	</button></a>
+	<div class="inscription-button">
+		<a ui-sref="createchallenge"><button class="inscription" ng-click="authUser()">
+  		Se connecter
+		</button></a>
 	</div>
+	</div>
+  </ion-content>
+	
   </ion-content>
 </ion-view>

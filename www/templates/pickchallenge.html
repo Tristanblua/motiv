@@ -1,4 +1,5 @@
-<ion-view view-title="pickchallenge" ng-controller="PickChallengeCtrl">
+<ion-view ng-controller="PickChallengeCtrl">
+<ion-nav-title><img src="http://motiv.fr/img/motiv-app-logo.png"></ion-nav-title>
   <ion-content>
     <ion-list ng-repeat="challenge in challenges">
       <a ui-sref="numberchallenge"><ion-radio ng-model="choice" ng-value="{{challenge.id}}" ng-click="pickChallenge({{challenge.id}})">{{challenge.name}}</ion-radio></a>

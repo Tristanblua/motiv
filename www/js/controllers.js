@@ -29,6 +29,8 @@ angular.module('starter.controllers', [])
 		  }
 		});
     };
+
+    document.getElementById("footer").style.display = "none";
 })
 
 .controller("AuthCtrl", function($scope) {
@@ -48,6 +50,7 @@ angular.module('starter.controllers', [])
 		  }
 		});
 	};
+	document.getElementById("footer").style.display = "none";
 })
 
 // .controller("CheckAuthCtrl", function($scope) {
@@ -84,9 +87,10 @@ angular.module('starter.controllers', [])
 
 	})
 
-	$scope.logout = function() {
-		ref.unauth();
-	}
+	// log out
+	// $scope.logout = function() {
+	// 	ref.unauth();
+	// }
 
 })
 
@@ -114,6 +118,7 @@ angular.module('starter.controllers', [])
 
 
 .controller("CreateChallengeCtrl", function($scope, Challengesent) {
+	document.getElementById("footer").style.display = "flex";
   var ref = new Firebase("https://motiv.firebaseio.com");
   var authData = ref.getAuth();
 

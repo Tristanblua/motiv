@@ -1,13 +1,21 @@
-<ion-view view-title="profil" controller="ProfilCtrl">
-  <ion-content>
-  <div class="content padding">
-  	<p>
+<ion-view controller="ProfilCtrl">
+<ion-nav-title><img src="http://motiv.fr/img/motiv-app-logo.png"></ion-nav-title>
+  <ion-content has-header="false" id="profil">
+  <div id="user-content">
+  	<p id="user-name">
   	  {{user.surname}}
-  	  {{user.name}}
   	</p>
-  	<a ui-sref="login"><button ng-click="logout()" class="button button-positive">
-  	  Log out
-	</button></a>
-	</div>
+    <p id="user-title">
+      Procrastinator
+    </p>
+    <div id="progress">
+      <span>Rang 25</span>
+    </div>
+  </div>
+  <div class="wrapper">
+    <i class="icon-challenge"></i>
+    <a href="#">Mes amis</a>
+    <a href="#">Classement</a>
+  </div>
   </ion-content>
 </ion-view>

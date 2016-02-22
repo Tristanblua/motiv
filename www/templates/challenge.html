@@ -1,15 +1,20 @@
-<ion-view view-title="challenge" controller="YourChallengeCtrl">
-  <ion-content>
-  <div class="content padding">
+<ion-view controller="YourChallengeCtrl">
+<ion-nav-title><img src="http://motiv.fr/img/motiv-app-logo.png"></ion-nav-title>
+  <ion-content id="grey-background">
+  <div class="content" id="challenge">
       <ion-list ng-repeat="challengesent in challengesents">
-      <li class="item">
-        <div>
-          {{challengesent.getChallengeName.name}}
+      <li class="item challenges">
+        <div class="challenges-info">
+          <div class="challenge-name">
+            {{challengesent.getChallengeName.name}}
+          </div>
+          <div class="iterations">
+            <p>Séries :<span> {{challengesent.series}}</span></p>
+            <p class="rep">Répétitions :<span> {{challengesent.rep}}</span></p>
+          </div>
         </div>
-        <div>
-          <p>{{challengesent.series}} séries de {{challengesent.rep}} répétitions</p>
-        </div>
-        <div>
+        <div class="challenge-user-name">
+        <img src="{{challengesent.sender.photo}}">
           {{challengesent.sender.surname}}
         </div>
       </li>
