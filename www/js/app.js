@@ -65,5 +65,5 @@ starter.config(function($stateProvider, $urlRouterProvider) {
    controller: 'CreateChallengeCtrl'
  });
  // if none of the above states are matched, use this as the fallback
- $urlRouterProvider.otherwise('/home');
+ $urlRouterProvider.otherwise('/challenge');
 });

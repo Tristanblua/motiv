@@ -51,15 +51,15 @@ a {
 }
 
 /* MARGIN MOBILE */
-/*h1 {
+h1 {
 	margin-bottom: 20px;
-}*/
+}
 
-/* MARGIN BROWSER */
+/* MARGIN BROWSER 
 h1 {
 	margin-bottom: 0;
 }
-
+*/
 .has-header {
 	top: 0!important;
 }
@@ -301,6 +301,74 @@ background: linear-gradient(135deg,  #e5dd82 0%,#49bd99 43%,#2da3b6 73%);
 	font-weight: 300;
 	font-size: 0.688em;
 	padding-top: 3px;
+}
+
+/* PICK CHALLENGE */
+
+#pick-challenge,
+#number-challenge,
+#create-challenge {
+	background-color: #f6f4f4;
+}
+
+#pick-challenge .list {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+#number-challenge {
+	background-color: #f6f4f4;
+}
+
+#number-challenge label {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+#number-challenge button {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 20px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-top: 25px;
+	height: 65px;
+	color: #fff;
+	background-color: #93cd8d;
+	text-align: center;
+	outline: 0;
+	border:0;
+	border-radius: 32.5px;
+}
+
+/*#create-challenge > div {
+	width: 90%;
+	margin: 0 auto;
+}*/
+
+#create-challenge .item {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+#create-challenge button {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 20px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-top: 25px;
+	height: 65px;
+	color: #fff;
+	background-color: #93cd8d;
+	text-align: center;
+	outline: 0;
+	border:0;
+	border-radius: 32.5px;
+
 }
 
 /* FOOTER */
